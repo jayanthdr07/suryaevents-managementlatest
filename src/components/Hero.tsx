@@ -1,10 +1,28 @@
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, ArrowRight, MessageSquare } from "lucide-react";
+
+const HERO_BACKGROUND_IMAGES = [
+  "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1920",
+  "https://cdn0.weddingwire.in/vendor/3890/3_2/960/jpg/wedding-planners-surya-events-stage-decor-3_15_373890-162973430113036.jpeg",
+  "https://cdn0.weddingwire.in/vendor/3890/3_2/960/jpg/wedding-planners-surya-events-stage-decor-7_15_373890-162973430996842.jpeg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6COl9PHfclJ891zYOu4v_sJMy2Hsc-TdjNIFhogJ3zBoNG1pTEbZ3zkx_&s=10",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp3JUUo27gsiv7sCK9t7hjHkAquUB8wPrJBfzUNTfRyz2aCvq6dDpI-oBj&s=10",
+];
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
   const [windowHeight, setWindowHeight] = useState(1000);
+  const [currentImageIdx, setCurrentImageIdx] = useState(0);
+
+  // Background Slideshow changing every 2 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIdx((prev) => (prev + 1) % HERO_BACKGROUND_IMAGES.length);
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,28 +68,54 @@ export default function Hero() {
       id="home"
       className="relative w-full h-[105vh] bg-[#050505] overflow-hidden flex items-center justify-center"
     >
-      {/* 1. Underlying Venue Image Layer (The Destination) */}
+      {/* 1. Underlying Venue Image Slideshow Layer (The Destination) */}
       <div
         className="absolute inset-0 z-0 origin-center transition-transform duration-75 ease-out"
         style={{
           transform: `scale(${bgScale}) translate3d(0, ${progress * -30}px, 0)`,
         }}
       >
-        <img
-          src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1920"
-          alt="The Regal Marigold Wedding Venue"
-          className="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.15] brightness-[0.96] filter"
-          referrerPolicy="no-referrer"
-        />
+        {HERO_BACKGROUND_IMAGES.map((imgSrc, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              currentImageIdx === idx ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
+            }`}
+          >
+            <img
+              src={imgSrc}
+              alt={`Surya Event Management Stage Backdrop ${idx + 1}`}
+              className="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.15] brightness-[0.96] filter"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        ))}
+
         {/* Soft Darkening Overlay for Visibility + Readability */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-[#050505]/50 via-black/30 to-[#050505]/85 transition-opacity duration-75"
+          className="absolute inset-0 bg-gradient-to-b from-[#050505]/55 via-black/40 to-[#050505]/90 transition-opacity duration-75"
           style={{ opacity: darkOverlayOpacity }}
         />
         {/* Balanced Radial Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.3)_0%,rgba(5,5,5,0.75)_100%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.25)_0%,rgba(5,5,5,0.8)_100%)] pointer-events-none" />
         {/* Ambient Gold Bottom Tint */}
         <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-[#050505] to-transparent" />
+      </div>
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#D4AF37]/30">
+        {HERO_BACKGROUND_IMAGES.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentImageIdx(idx)}
+            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              currentImageIdx === idx
+                ? "w-6 bg-[#D4AF37]"
+                : "w-1.5 bg-white/40 hover:bg-white/70"
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
       </div>
 
       {/* 2. Overarching Palace Portal Frame (The Doorway Mask) */}
@@ -135,10 +179,10 @@ export default function Hero() {
           </button>
           
           <button
-            onClick={() => scrollToSection("#gallery")}
+            onClick={() => scrollToSection("#featured")}
             className="w-full sm:w-auto px-8 py-4 bg-black/60 border border-white/30 text-[#f5f5f0] font-sans font-bold text-xs uppercase tracking-[0.2em] rounded-sm hover:bg-white/20 hover:border-[#D4AF37]/60 active:scale-95 transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2 shadow-xl cursor-pointer"
           >
-            View Gallery
+            Featured Events
           </button>
 
           <a
