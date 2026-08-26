@@ -1,12 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Sparkles, MapPin, Users, CheckCircle2, ArrowRight, X, Image as ImageIcon } from "lucide-react";
+import { Sparkles, MapPin, Users, CheckCircle2, ArrowRight, X, Image as ImageIcon, ArrowLeft } from "lucide-react";
 import { FEATURED_EVENTS } from "../data";
 import { FeaturedEvent } from "../types";
 
 export default function FeaturedEvents() {
   const [selectedEvent, setSelectedEvent] = useState<FeaturedEvent | null>(null);
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
+
+  // Close on ESC key and lock body scroll
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedEvent(null);
+      }
+    };
+
+    if (selectedEvent) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedEvent]);
 
   const openEvent = (event: FeaturedEvent) => {
     setSelectedEvent(event);
@@ -138,12 +159,14 @@ export default function FeaturedEvents() {
               className="bg-[#0a0a0a] border border-[#D4AF37]/40 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
+              {/* Top Close / Exit Button */}
               <button
                 onClick={() => setSelectedEvent(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-black/80 border border-[#D4AF37]/40 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-30"
+                className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/85 border border-[#D4AF37]/60 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-30 flex items-center gap-1.5 shadow-2xl backdrop-blur-md text-xs font-sans uppercase font-bold tracking-wider"
+                title="Close and exit event details (Esc)"
               >
-                <X className="w-5 h-5" />
+                <span>Exit</span>
+                <X className="w-4 h-4" />
               </button>
 
               {/* Main Image Stage */}
@@ -211,16 +234,21 @@ export default function FeaturedEvents() {
                   </div>
                 </div>
 
-                {/* CTA */}
+                {/* CTA with Exit Button */}
                 <div className="pt-6 border-t border-[#D4AF37]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <span className="text-xs text-[#F5F5F0]/60 font-sans">
-                    Want an authentic setup like this for your family?
-                  </span>
+                  <button
+                    onClick={() => setSelectedEvent(null)}
+                    className="w-full sm:w-auto px-5 py-3 bg-white/10 hover:bg-white/20 border border-[#D4AF37]/40 text-white hover:text-[#D4AF37] font-sans font-bold text-xs uppercase tracking-widest rounded-md transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back / Exit Event
+                  </button>
+
                   <a
                     href={`https://wa.me/919449303946?text=${encodeURIComponent(`Hello Surya Event Management, I loved your setup for "${selectedEvent.title}" and would like to inquire for our event.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 bg-[#D4AF37] text-black font-sans font-bold text-xs uppercase tracking-widest rounded-md hover:brightness-110 active:scale-98 transition-all flex items-center gap-2 shadow-lg"
+                    className="w-full sm:w-auto px-6 py-3 bg-[#D4AF37] text-black font-sans font-bold text-xs uppercase tracking-widest rounded-md hover:brightness-110 active:scale-98 transition-all flex items-center justify-center gap-2 shadow-lg"
                   >
                     Inquire For Similar Setup
                     <ArrowRight className="w-4 h-4" />

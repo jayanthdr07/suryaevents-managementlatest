@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Sparkles, 
@@ -14,7 +14,8 @@ import {
   Heart, 
   X,
   Tag,
-  Facebook
+  Facebook,
+  ArrowLeft
 } from "lucide-react";
 
 interface BlogPost {
@@ -105,6 +106,27 @@ export default function Blog() {
   const [userLikedMap, setUserLikedMap] = useState<Record<string, boolean>>({});
 
   const categories = ["All", "Wedding Trends", "Decor & Styling", "Behind The Scenes"];
+
+  // Close on ESC key and lock body scroll
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedPost(null);
+      }
+    };
+
+    if (selectedPost) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPost]);
 
   const filteredPosts = activeCategory === "All"
     ? BLOG_POSTS
@@ -373,12 +395,14 @@ export default function Blog() {
               className="bg-[#0a0a0a] border border-[#D4AF37]/40 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
+              {/* Top Close / Exit Button */}
               <button
                 onClick={() => setSelectedPost(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-black/80 border border-[#D4AF37]/40 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-20"
+                className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/85 border border-[#D4AF37]/60 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-30 flex items-center gap-1.5 shadow-2xl backdrop-blur-md text-xs font-sans uppercase font-bold tracking-wider"
+                title="Close and exit article (Esc)"
               >
-                <X className="w-5 h-5" />
+                <span>Exit</span>
+                <X className="w-4 h-4" />
               </button>
 
               {/* Modal Cover Image */}
@@ -455,6 +479,17 @@ export default function Blog() {
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
+                </div>
+
+                {/* Bottom Exit Bar */}
+                <div className="pt-4 border-t border-[#D4AF37]/20 flex justify-end">
+                  <button
+                    onClick={() => setSelectedPost(null)}
+                    className="w-full sm:w-auto px-6 py-3 bg-white/10 hover:bg-[#D4AF37] hover:text-black border border-[#D4AF37]/40 text-white font-sans font-bold text-xs uppercase tracking-widest rounded-md transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back / Exit Article
+                  </button>
                 </div>
               </div>
             </motion.div>

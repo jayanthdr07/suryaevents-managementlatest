@@ -1,11 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Sparkles, CheckCircle2, ArrowRight, X, Calendar, Phone, MessageSquare } from "lucide-react";
+import { Sparkles, CheckCircle2, ArrowRight, X, Calendar, Phone, MessageSquare, ArrowLeft } from "lucide-react";
 import { SERVICES } from "../data";
 import { Service } from "../types";
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+
+  // Close on ESC key and lock body scroll
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedService(null);
+      }
+    };
+
+    if (selectedService) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedService]);
 
   const scrollToContact = (serviceTitle?: string) => {
     setSelectedService(null);
@@ -139,12 +160,14 @@ export default function Services() {
               className="bg-[#0e0e0e] border border-[#D4AF37]/40 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
+              {/* Top Close / Exit Button */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-black/80 border border-[#D4AF37]/40 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-20"
+                className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/85 border border-[#D4AF37]/60 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-30 flex items-center gap-1.5 shadow-2xl backdrop-blur-md text-xs font-sans uppercase font-bold tracking-wider"
+                title="Close and exit details (Esc)"
               >
-                <X className="w-5 h-5" />
+                <span>Exit</span>
+                <X className="w-4 h-4" />
               </button>
 
               {/* Modal Cover Image */}
@@ -187,11 +210,19 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* Modal CTA Buttons */}
-                <div className="pt-4 border-t border-[#D4AF37]/20 flex flex-col sm:flex-row gap-4">
+                {/* Modal Action Buttons with Exit Option */}
+                <div className="pt-4 border-t border-[#D4AF37]/20 flex flex-col sm:flex-row items-center gap-3">
+                  <button
+                    onClick={() => setSelectedService(null)}
+                    className="w-full sm:w-auto px-5 py-3.5 bg-white/10 hover:bg-white/20 border border-[#D4AF37]/40 text-white hover:text-[#D4AF37] font-sans font-bold text-xs uppercase tracking-widest rounded-md transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back / Exit Details
+                  </button>
+
                   <button
                     onClick={() => scrollToContact(selectedService.title)}
-                    className="flex-1 py-3.5 bg-[#D4AF37] text-black font-sans font-bold text-xs uppercase tracking-widest rounded-md hover:brightness-110 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+                    className="flex-1 w-full py-3.5 bg-[#D4AF37] text-black font-sans font-bold text-xs uppercase tracking-widest rounded-md hover:brightness-110 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
                   >
                     <Calendar className="w-4 h-4" />
                     Book Consultation
@@ -201,10 +232,10 @@ export default function Services() {
                     href={`https://wa.me/919449303946?text=${encodeURIComponent(`Hello Surya Event Management, I'd like to discuss the package: ${selectedService.title}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-3.5 bg-[#25D366]/20 border border-[#25D366]/50 text-[#25D366] font-sans font-bold text-xs uppercase tracking-widest rounded-md hover:bg-[#25D366]/30 transition-all flex items-center justify-center gap-2 shadow-lg"
+                    className="w-full sm:w-auto px-5 py-3.5 bg-[#25D366]/20 border border-[#25D366]/50 text-[#25D366] font-sans font-bold text-xs uppercase tracking-widest rounded-md hover:bg-[#25D366]/30 transition-all flex items-center justify-center gap-2 shadow-lg"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    Chat on WhatsApp
+                    WhatsApp
                   </a>
                 </div>
               </div>
