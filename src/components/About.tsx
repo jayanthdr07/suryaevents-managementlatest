@@ -173,7 +173,7 @@ export default function About() {
             {/* Image 1: Main Large Frame */}
             <div className="absolute top-4 right-4 w-[85%] h-[75%] rounded-sm overflow-hidden border border-[#D4AF37]/20 shadow-[0_20px_40px_rgba(0,0,0,0.8)] z-10 group parallax-img-main">
               <img
-                src="https://suryaevent.com/wp-content/uploads/2023/07/WhatsApp-Image-2023-07-01-at-3.08.14-PM-1536x1536.jpeg"
+                src="https://cdn0.weddingwire.in/vendor/3890/3_2/960/jpg/wedding-planners-surya-events-stage-decor-7_15_373890-162973430996842.jpeg"
                 alt="Surya Event Management Premium Celebration Setup"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 referrerPolicy="no-referrer"
