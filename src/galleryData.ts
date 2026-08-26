@@ -25,7 +25,7 @@ export interface GalleryEvent {
 export const GALLERY_CATEGORIES_INFO: GalleryCategoryInfo[] = [
   {
     id: "luxury-weddings",
-    name: "South Indian Weddings & Muhurtham",
+    name: "South Indian Weddings & Muhurtha",
     description: "Traditional Muhurtha, marigold arches, silk drapes, and end-to-end wedding celebrations.",
     coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRJD_nx7o0mX5JU88Ih-hUVAsxOB9UVOFAHxcz0IA768OETNUEKFM1toB8&s=10"
   },
@@ -44,11 +44,11 @@ export const GALLERY_CATEGORIES_INFO: GalleryCategoryInfo[] = [
 ];
 
 export const GALLERY_EVENTS: GalleryEvent[] = [
-  // --- Category: South Indian Weddings & Muhurtham ---
+  // --- Category: South Indian Weddings & Muhurtha ---
   {
     id: "marigold-palace",
     categoryId: "luxury-weddings",
-    title: "Grand South Indian Muhurtham",
+    title: "Grand South Indian Muhurtha",
     tagline: "Palace Grounds, Bengaluru",
     heroImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY6hWe-ffEia8wORkl8oACfwZxidr0kCnpM0tiB_oIZ_g33GQcMb0kdck&s=10",
     description: "A multi-day traditional South Indian wedding celebrating rich heritage at Palace Grounds, Bengaluru. Surya Event Management designed a 40-foot Muhurtha adorned with fresh marigolds, mogra (jasmine), banana tree saplings, and handcrafted brass oil lamps.",

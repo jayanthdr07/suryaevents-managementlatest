@@ -28,7 +28,7 @@ export default function About() {
     {
       icon: CheckCircle,
       title: "End-to-End Ease",
-      desc: "Seamless planning for Muhurtham, Receptions, Seemantha, and Namakarana so your family remains entirely stress-free."
+      desc: "Seamless planning for Muhurtha, Receptions, Seemantha, and Namakarana so your family remains entirely stress-free."
     }
   ];
 
@@ -130,7 +130,7 @@ export default function About() {
             </div>
 
             <p className="font-sans text-[#F5F5F0]/80 text-base md:text-lg leading-relaxed font-light parallax-header-element">
-              For over decades, <strong className="text-[#f5f5f0] font-semibold">Surya Event Management</strong> has been the premier choice for families across Bengaluru and South India seeking authentic grandeur, flawless execution, and bespoke wedding design. Founded on deep artistic passion and valuable venue relationships, we treat every Muhurtham, Reception, and traditional ceremony as a historic family milestone.
+              For over decades, <strong className="text-[#f5f5f0] font-semibold">Surya Event Management</strong> has been the premier choice for families across Bengaluru and South India seeking authentic grandeur, flawless execution, and bespoke wedding design. Founded on deep artistic passion and valuable venue relationships, we treat every Muhurtha, Reception, and traditional ceremony as a historic family milestone.
             </p>
 
             <p className="font-sans text-[#F5F5F0]/70 text-sm md:text-base leading-relaxed font-light parallax-header-element">

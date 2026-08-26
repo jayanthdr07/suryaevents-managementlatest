@@ -3,7 +3,7 @@ import { Service, FeaturedEvent, GalleryCategory, Testimonial } from "./types";
 export const SERVICES: Service[] = [
   {
     id: "wedding",
-    title: "South Indian Weddings & Muhurtham",
+    title: "South Indian Weddings & Muhurtha",
     description: "End-to-end planning for traditional South Indian weddings, grand Muhurtha, and sacred ritual setups.",
     details: [
       "Authentic Muhurtha Design with Fresh Jasmine & Marigolds",
@@ -73,7 +73,7 @@ export const SERVICES: Service[] = [
 export const FEATURED_EVENTS: FeaturedEvent[] = [
   {
     id: "royal-palace",
-    title: "Grand South Indian Muhurtham & Reception",
+    title: "Grand South Indian Muhurtha & Reception",
     type: "Traditional South Indian Wedding",
     venueStyle: "Palace Grounds, Bengaluru",
     shortStory: "A multi-day celebration featuring a traditional Muhurtha adorned with fresh marigolds and a majestic reception stage.",
@@ -143,7 +143,7 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
 export const GALLERY_CATEGORIES: GalleryCategory[] = [
   {
     id: "luxury-weddings",
-    name: "South Indian Weddings & Muhurtham",
+    name: "South Indian Weddings & Muhurtha",
     description: "Traditional Muhurtha, marigold arches, and end-to-end wedding celebrations.",
     coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRJD_nx7o0mX5JU88Ih-hUVAsxOB9UVOFAHxcz0IA768OETNUEKFM1toB8&s=10",
     images: [
@@ -252,8 +252,8 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     clientName: "Nirmala Chandrashekar",
-    eventType: "Traditional Muhurtham & Reception",
-    review: "The traditional Muhurtham setup with fresh marigolds and brass lamps looked so divine. Highly recommend their team for any South Indian wedding in Karnataka.",
+    eventType: "Traditional Muhurtha & Reception",
+    review: "The traditional Muhurtha setup with fresh marigolds and brass lamps looked so divine. Highly recommend their team for any South Indian wedding in Karnataka.",
     location: "Imperial Courtyard, Hubli",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
   }

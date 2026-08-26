@@ -4,16 +4,19 @@ import TrustStrip from "./components/TrustStrip";
 import About from "./components/About";
 import Services from "./components/Services";
 import FeaturedEvents from "./components/FeaturedEvents";
+import Gallery from "./components/Gallery";
 import Blog from "./components/Blog";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppFloating from "./components/WhatsAppFloating";
+import ReadingProgressBar from "./components/ReadingProgressBar";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-[#050505] text-[#f5f5f0] selection:bg-[#D4AF37] selection:text-black">
+      <ReadingProgressBar />
       <Header />
       <main>
         <Hero />
@@ -21,6 +24,7 @@ export default function App() {
         <About />
         <Services />
         <FeaturedEvents />
+        <Gallery />
         <Blog />
         <Testimonials />
         <FAQ />

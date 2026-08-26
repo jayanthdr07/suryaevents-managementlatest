@@ -18,7 +18,7 @@ export default function Contact() {
     fullName: "",
     phone: "",
     email: "",
-    eventType: "South Indian Wedding & Muhurtham",
+    eventType: "South Indian Wedding & Muhurtha",
     eventDate: "",
     guestCount: "500-1000 Guests",
     venueCity: "Bengaluru",
@@ -248,7 +248,7 @@ export default function Contact() {
                         onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
                         className="w-full px-4 py-3 bg-black/80 border border-[#D4AF37]/30 rounded-lg text-white text-sm font-sans focus:outline-none focus:border-[#D4AF37] transition-all"
                       >
-                        <option value="South Indian Wedding & Muhurtham">South Indian Wedding &amp; Muhurtham</option>
+                        <option value="South Indian Wedding & Muhurtha">South Indian Wedding &amp; Muhurtha</option>
                         <option value="Grand Reception Stage Structure">Grand Reception Stage Structure</option>
                         <option value="End-to-End Complete Wedding Package">End-to-End Complete Wedding Package</option>
                         <option value="Nischayathartha (Engagement)">Nischayathartha (Engagement)</option>
@@ -311,7 +311,7 @@ export default function Contact() {
                       rows={3}
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      placeholder="Tell us about your preferred decor style, Muhurtham timing, catering requirements, or questions..."
+                      placeholder="Tell us about your preferred decor style, Muhurtha timing, catering requirements, or questions..."
                       className="w-full px-4 py-3 bg-black/60 border border-[#D4AF37]/30 rounded-lg text-white text-sm font-sans focus:outline-none focus:border-[#D4AF37] transition-all resize-none"
                     />
                   </div>

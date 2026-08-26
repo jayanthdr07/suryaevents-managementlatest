@@ -19,6 +19,7 @@ export default function Header() {
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Featured Events", href: "#featured" },
+    { name: "Gallery", href: "#gallery" },
     { name: "Blog", href: "#blog" },
     { name: "Clients", href: "#clients" },
     { name: "FAQ", href: "#faq" },

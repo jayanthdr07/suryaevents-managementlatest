@@ -57,7 +57,7 @@ At Surya Event Management, our decades of hands-on experience enable us to plan,
     id: "pan-india-destination-logistics",
     title: "End-to-End Wedding Management in Bengaluru: Stress-Free Family Celebrations",
     excerpt: "How Surya Event Management manages priest scheduling, hall decor, guest hospitality, and dining logistics with complete care.",
-    fullContent: `Managing a South Indian wedding requires thorough organization and warm hospitality. From the morning Muhurtham to the evening Reception, every timing must be handled carefully.
+    fullContent: `Managing a South Indian wedding requires thorough organization and warm hospitality. From the morning Muhurtha to the evening Reception, every timing must be handled carefully.
 
 Our End-to-End Management Includes:
 • Dedicated Host Coordinators for family elders and arriving guests.

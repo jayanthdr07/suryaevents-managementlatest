@@ -16,7 +16,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "Do you coordinate with Purohits / Priests for auspicious Muhurtha timings?",
-    answer: "Yes, absolutely. South Indian weddings adhere strictly to specific Shubha Muhurtham windows (often early morning or pre-dawn). Our event managers work closely with your family priests and purohits to ensure all sacred rituals, Havans, and Mangalya Dharanam ceremonies happen exactly on time without stress.",
+    answer: "Yes, absolutely. South Indian weddings adhere strictly to specific Shubha Muhurtha windows (often early morning or pre-dawn). Our event managers work closely with your family priests and purohits to ensure all sacred rituals, Havans, and Mangalya Dharanam ceremonies happen exactly on time without stress.",
     category: "Rituals & Timings"
   },
   {
