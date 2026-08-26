@@ -1,0 +1,467 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { 
+  Sparkles, 
+  Instagram, 
+  FolderOpen, 
+  ExternalLink, 
+  Calendar, 
+  User, 
+  Clock, 
+  ArrowRight, 
+  BookOpen, 
+  Share2, 
+  Heart, 
+  X,
+  Tag,
+  Facebook
+} from "lucide-react";
+
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  fullContent: string;
+  category: "Wedding Trends" | "Decor & Styling" | "Behind The Scenes";
+  date: string;
+  readTime: string;
+  author: string;
+  image: string;
+  likes: number;
+  instagramTag?: string;
+}
+
+const BLOG_POSTS: BlogPost[] = [
+  {
+    id: "royal-heritage-weddings-2026",
+    title: "Top South Indian Wedding Trends: Muhurtha & Stage Structures",
+    excerpt: "Discover how traditional weddings in Bengaluru and across South India are blending authentic ritual spaces with modern lighting and floral arches.",
+    fullContent: `South Indian wedding celebrations are evolving into beautifully detailed experiences. Couples and families seeking elegance in Bengaluru and Karnataka are creating unforgettable memories rooted in deep heritage.
+
+Key highlights shaping current South Indian celebrations:
+1. Traditional Muhurtha: Creating sacred spaces adorned with fresh marigolds, fragrant jasmine (mogra), banana trees, and handcrafted brass oil lamps.
+2. Grand Reception Structures: Building illuminated 50-foot backdrops featuring crystal canopies, glass walkways, and lush orchid overlays.
+3. Live Nadaswaram & Carnatic Music: Pairing classical live musical ensembles with balanced acoustics for a divine ceremony ambience.
+4. Authentic Dining Experiences: Serving traditional grand feasts on fresh banana leaves with complete warm hospitality.
+
+At Surya Event Management, our decades of hands-on experience enable us to plan, design, and manage every ceremony seamlessly.`,
+    category: "Wedding Trends",
+    date: "July 28, 2026",
+    readTime: "5 min read",
+    author: "Surya Editorial Team",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=800",
+    likes: 342,
+    instagramTag: "@_surya_event_management._"
+  },
+  {
+    id: "pan-india-destination-logistics",
+    title: "End-to-End Wedding Management in Bengaluru: Stress-Free Family Celebrations",
+    excerpt: "How Surya Event Management manages priest scheduling, hall decor, guest hospitality, and dining logistics with complete care.",
+    fullContent: `Managing a South Indian wedding requires thorough organization and warm hospitality. From the morning Muhurtham to the evening Reception, every timing must be handled carefully.
+
+Our End-to-End Management Includes:
+• Dedicated Host Coordinators for family elders and arriving guests.
+• Complete venue styling including stage backdrops, entrance arches, and dining arrangements.
+• Generator power backups and professional audio-visual setups for Sangeet and Reception.
+• Full support for family milestone ceremonies including Engagement (Nischayathartha), Seemantha, and Namakarana.
+
+Surya Event Management takes full responsibility so that families can stay relaxed and cherish every ritual together.`,
+    category: "Behind The Scenes",
+    date: "July 20, 2026",
+    readTime: "4 min read",
+    author: "Operations Desk",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800",
+    likes: 289,
+    instagramTag: "@_surya_event_management._"
+  },
+  {
+    id: "bespoke-floral-decor-mastery",
+    title: "Fresh Floral Styling for Muhurtha & Sangeet Stages",
+    excerpt: "An inside look into our floral design process—combining traditional marigolds, mogra, and lotus urlis with contemporary elegance.",
+    fullContent: `Floral decoration is central to traditional South Indian celebrations. It provides a fragrant, welcoming atmosphere for every guest.
+
+In our recent Bengaluru celebrations, thousands of fresh marigolds and jasmine garlands were crafted on custom wooden and brass structures overnight.
+
+Key Floral Touchpoints:
+• Welcoming Entrances: Banana sapling arches paired with lotus brass urlis and floating petals.
+• Sacred Muhurtha Framing: Elegant draping in gold and temple red with dense marigold borders.
+• Fresh Scent Experience: Sourcing fresh blooms directly from regional Karnataka growers to ensure pristine beauty.`,
+    category: "Decor & Styling",
+    date: "July 12, 2026",
+    readTime: "3 min read",
+    author: "Design Studio",
+    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800",
+    likes: 415,
+    instagramTag: "@_surya_event_management._"
+  }
+];
+
+export default function Blog() {
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [likesMap, setLikesMap] = useState<Record<string, number>>(
+    BLOG_POSTS.reduce((acc, post) => ({ ...acc, [post.id]: post.likes }), {})
+  );
+  const [userLikedMap, setUserLikedMap] = useState<Record<string, boolean>>({});
+
+  const categories = ["All", "Wedding Trends", "Decor & Styling", "Behind The Scenes"];
+
+  const filteredPosts = activeCategory === "All"
+    ? BLOG_POSTS
+    : BLOG_POSTS.filter((post) => post.category === activeCategory);
+
+  const toggleLike = (postId: string) => {
+    setUserLikedMap((prev) => {
+      const isLiked = prev[postId];
+      setLikesMap((likes) => ({
+        ...likes,
+        [postId]: isLiked ? likes[postId] - 1 : likes[postId] + 1
+      }));
+      return { ...prev, [postId]: !isLiked };
+    });
+  };
+
+  return (
+    <section
+      id="blog"
+      className="relative z-20 bg-[#050505] py-24 md:py-32 px-6 md:px-12 border-b border-[#D4AF37]/10 overflow-hidden"
+    >
+      {/* Background Glows */}
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-[#745414]/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto space-y-16">
+        
+        {/* Section Header */}
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <span className="text-xs uppercase tracking-[0.4em] text-[#D4AF37] font-sans font-semibold flex items-center justify-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#D4AF37]" />
+            INSIGHTS &amp; SOCIAL JOURNAL
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
+            Surya Event Management <br />
+            <span className="text-gold-gradient italic font-normal">Blogs &amp; Live Updates</span>
+          </h2>
+          <p className="font-sans text-xs md:text-sm text-[#F5F5F0]/70 max-w-xl mx-auto leading-relaxed font-light">
+            Explore South Indian wedding ideas, stage design insights, and official social channels from Surya Event Management.
+          </p>
+          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6" />
+        </div>
+
+        {/* Featured Reference Links Banner (Instagram, Facebook & Google Media Drive) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {/* Instagram Official Handle Box */}
+          <motion.a
+            href="https://www.instagram.com/_surya_event_management._?igsh=aDV5M2c2Mzd4eXNs"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="p-6 bg-gradient-to-br from-purple-950/30 via-black to-pink-950/20 border border-pink-500/30 hover:border-pink-500/60 rounded-xl flex items-center justify-between gap-4 shadow-[0_10px_30px_rgba(236,72,153,0.1)] transition-all group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-[2px] shadow-lg flex-shrink-0">
+                <div className="w-full h-full bg-black rounded-full flex items-center justify-center text-white group-hover:scale-105 transition-transform">
+                  <Instagram className="w-6 h-6 text-pink-400" />
+                </div>
+              </div>
+              <div>
+                <span className="text-[10px] font-sans uppercase tracking-widest text-pink-400 font-bold block">
+                  Instagram
+                </span>
+                <h3 className="font-serif text-base font-bold text-white group-hover:text-pink-200 transition-colors">
+                  @_surya_event_management._
+                </h3>
+                <p className="text-[11px] text-[#F5F5F0]/60 font-light mt-0.5">
+                  Live reels &amp; stage videos
+                </p>
+              </div>
+            </div>
+            <div className="p-2.5 rounded-full bg-pink-500/10 text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors flex-shrink-0">
+              <ExternalLink className="w-4 h-4" />
+            </div>
+          </motion.a>
+
+          {/* Facebook Official Handle Box */}
+          <motion.a
+            href="https://www.facebook.com/share/198yMm2gpF/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="p-6 bg-gradient-to-br from-blue-950/30 via-black to-indigo-950/20 border border-blue-500/30 hover:border-blue-500/60 rounded-xl flex items-center justify-between gap-4 shadow-[0_10px_30px_rgba(59,130,246,0.1)] transition-all group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 via-blue-500 to-indigo-600 p-[2px] shadow-lg flex-shrink-0">
+                <div className="w-full h-full bg-black rounded-full flex items-center justify-center text-white group-hover:scale-105 transition-transform">
+                  <Facebook className="w-6 h-6 text-blue-400" />
+                </div>
+              </div>
+              <div>
+                <span className="text-[10px] font-sans uppercase tracking-widest text-blue-400 font-bold block">
+                  Facebook Page
+                </span>
+                <h3 className="font-serif text-base font-bold text-white group-hover:text-blue-200 transition-colors">
+                  Surya Event Management
+                </h3>
+                <p className="text-[11px] text-[#F5F5F0]/60 font-light mt-0.5">
+                  Photo albums &amp; updates
+                </p>
+              </div>
+            </div>
+            <div className="p-2.5 rounded-full bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors flex-shrink-0">
+              <ExternalLink className="w-4 h-4" />
+            </div>
+          </motion.a>
+
+          {/* Google Share Assets Drive Box */}
+          <motion.a
+            href="https://share.google/XzoqUIxxXwynxX8Fn"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="p-6 bg-gradient-to-br from-[#D4AF37]/10 via-black to-[#745414]/20 border border-[#D4AF37]/30 hover:border-[#D4AF37]/70 rounded-xl flex items-center justify-between gap-4 shadow-[0_10px_30px_rgba(212,175,55,0.1)] transition-all group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#D4AF37] via-amber-200 to-[#745414] p-[2px] shadow-lg flex-shrink-0">
+                <div className="w-full h-full bg-black rounded-full flex items-center justify-center text-[#D4AF37] group-hover:scale-105 transition-transform">
+                  <FolderOpen className="w-6 h-6" />
+                </div>
+              </div>
+              <div>
+                <span className="text-[10px] font-sans uppercase tracking-widest text-[#D4AF37] font-bold block">
+                  Media Drive
+                </span>
+                <h3 className="font-serif text-base font-bold text-white group-hover:text-[#D4AF37] transition-colors">
+                  Google Drive Gallery
+                </h3>
+                <p className="text-[11px] text-[#F5F5F0]/60 font-light mt-0.5">
+                  High-res photo portfolio
+                </p>
+              </div>
+            </div>
+            <div className="p-2.5 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors flex-shrink-0">
+              <ExternalLink className="w-4 h-4" />
+            </div>
+          </motion.a>
+        </div>
+
+        {/* Category Navigation Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2.5 rounded-full text-xs font-sans tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                activeCategory === cat
+                  ? "bg-[#D4AF37] text-black font-bold shadow-[0_4px_20px_rgba(212,175,55,0.4)]"
+                  : "bg-white/5 border border-white/10 text-[#F5F5F0]/70 hover:text-white hover:border-[#D4AF37]/40"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Blog Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {filteredPosts.map((post, idx) => (
+            <motion.article
+              key={post.id}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="bg-white/5 backdrop-blur-xl border border-[#D4AF37]/20 rounded-xl overflow-hidden hover:border-[#D4AF37]/50 hover:bg-white/[0.08] transition-all duration-500 group flex flex-col justify-between shadow-xl"
+            >
+              <div>
+                {/* Blog Image Header */}
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/30" />
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 bg-black/75 border border-[#D4AF37]/40 rounded-full text-[10px] font-sans uppercase tracking-widest text-[#D4AF37] backdrop-blur-md font-bold">
+                    <Tag className="w-3 h-3" />
+                    {post.category}
+                  </div>
+
+                  {/* Read Time & Likes */}
+                  <div className="absolute bottom-4 right-4 flex items-center gap-3">
+                    <span className="text-[10px] font-sans uppercase tracking-wider text-white/80 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-sm flex items-center gap-1">
+                      <Clock className="w-3 h-3 text-[#D4AF37]" />
+                      {post.readTime}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Article Body */}
+                <div className="p-8 space-y-4">
+                  <div className="flex items-center gap-4 text-xs text-[#F5F5F0]/50 font-sans">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      {post.date}
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">
+                      <User className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      {post.author}
+                    </span>
+                  </div>
+
+                  <h3 className="font-serif text-xl md:text-2xl font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+
+                  <p className="font-sans text-xs md:text-sm text-[#F5F5F0]/70 font-light leading-relaxed line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card Footer Actions */}
+              <div className="px-8 pb-8 pt-2 flex items-center justify-between border-t border-[#D4AF37]/10 mt-4">
+                <button
+                  onClick={() => setSelectedPost(post)}
+                  className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-widest text-[#D4AF37] font-bold group-hover:translate-x-1 transition-transform cursor-pointer"
+                >
+                  Read Article
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => toggleLike(post.id)}
+                    className={`flex items-center gap-1.5 text-xs font-sans px-3 py-1.5 rounded-full border transition-colors cursor-pointer ${
+                      userLikedMap[post.id]
+                        ? "bg-rose-500/20 border-rose-500/60 text-rose-400"
+                        : "bg-white/5 border-white/10 text-white/70 hover:text-rose-400 hover:border-rose-500/30"
+                    }`}
+                  >
+                    <Heart className={`w-3.5 h-3.5 ${userLikedMap[post.id] ? "fill-rose-400" : ""}`} />
+                    <span>{likesMap[post.id]}</span>
+                  </button>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+      </div>
+
+      {/* Full Article Modal */}
+      <AnimatePresence>
+        {selectedPost && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 md:p-8 overflow-y-auto"
+            onClick={() => setSelectedPost(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="bg-[#0a0a0a] border border-[#D4AF37]/40 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedPost(null)}
+                className="absolute top-4 right-4 p-2 rounded-full bg-black/80 border border-[#D4AF37]/40 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-20"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Modal Cover Image */}
+              <div className="relative h-72 md:h-96 w-full overflow-hidden">
+                <img
+                  src={selectedPost.image}
+                  alt={selectedPost.title}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/40" />
+                <div className="absolute bottom-6 left-6 right-6 space-y-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/75 border border-[#D4AF37]/50 rounded-full text-[10px] font-sans uppercase tracking-widest text-[#D4AF37] font-bold">
+                    {selectedPost.category}
+                  </span>
+                  <h2 className="font-serif text-2xl md:text-4xl font-bold text-white leading-tight drop-shadow-md">
+                    {selectedPost.title}
+                  </h2>
+                </div>
+              </div>
+
+              {/* Modal Details & Content */}
+              <div className="p-6 md:p-10 space-y-8">
+                <div className="flex flex-wrap items-center justify-between gap-4 py-3 border-y border-[#D4AF37]/20 text-xs font-sans text-[#F5F5F0]/60">
+                  <div className="flex items-center gap-4">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4 text-[#D4AF37]" />
+                      {selectedPost.date}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <User className="w-4 h-4 text-[#D4AF37]" />
+                      {selectedPost.author}
+                    </span>
+                  </div>
+                  <span className="flex items-center gap-1.5 text-[#D4AF37]">
+                    <Clock className="w-4 h-4" />
+                    {selectedPost.readTime}
+                  </span>
+                </div>
+
+                {/* Main Article Text */}
+                <div className="prose prose-invert max-w-none text-sm md:text-base leading-relaxed text-[#F5F5F0]/85 font-light whitespace-pre-line">
+                  {selectedPost.fullContent}
+                </div>
+
+                {/* Social Share & Instagram / Facebook Action Card */}
+                <div className="p-6 bg-gradient-to-r from-purple-950/40 via-black to-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div>
+                    <h4 className="font-serif text-base font-bold text-white flex items-center gap-2">
+                      <Instagram className="w-5 h-5 text-pink-400" />
+                      Follow Official Event Stories
+                    </h4>
+                    <p className="text-xs text-[#F5F5F0]/60 font-light mt-1">
+                      See daily grand decor setups &amp; live video highlights on Instagram and Facebook.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="https://www.instagram.com/_surya_event_management._?igsh=aDV5M2c2Mzd4eXNs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-gradient-to-r from-pink-600 to-amber-500 text-white rounded-md text-xs font-sans uppercase tracking-widest font-bold hover:brightness-110 transition-all flex items-center gap-1.5 whitespace-nowrap shadow-lg"
+                    >
+                      Instagram
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/share/198yMm2gpF/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md text-xs font-sans uppercase tracking-widest font-bold transition-all flex items-center gap-1.5 whitespace-nowrap shadow-lg"
+                    >
+                      Facebook
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
+

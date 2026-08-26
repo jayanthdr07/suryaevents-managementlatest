@@ -1,0 +1,6 @@
+{
+  "name": "Surya Event Management",
+  "description": "Surya Event Management crafts traditional South Indian weddings, grand Muhurtha, reception structures, and family ceremonies in Bengaluru and Karnataka.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
