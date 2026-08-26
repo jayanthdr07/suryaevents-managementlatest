@@ -384,29 +384,55 @@ export default function Blog() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 md:p-8 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-8 overflow-y-auto"
             onClick={() => setSelectedPost(null)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              drag="y"
+              dragConstraints={{ top: 0, bottom: 0 }}
+              dragElastic={{ top: 0, bottom: 0.6 }}
+              onDragEnd={(_e, info) => {
+                if (info.offset.y > 75 || info.velocity.y > 400) {
+                  setSelectedPost(null);
+                }
+              }}
+              initial={{ scale: 0.95, opacity: 0, y: 40 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="bg-[#0a0a0a] border border-[#D4AF37]/40 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
+              exit={{ scale: 0.95, opacity: 0, y: 40 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="bg-[#0a0a0a] border border-[#D4AF37]/40 rounded-t-3xl sm:rounded-2xl max-w-3xl w-full max-h-[92vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Top Close / Exit Button */}
-              <button
-                onClick={() => setSelectedPost(null)}
-                className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/85 border border-[#D4AF37]/60 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-30 flex items-center gap-1.5 shadow-2xl backdrop-blur-md text-xs font-sans uppercase font-bold tracking-wider"
-                title="Close and exit article (Esc)"
-              >
-                <span>Exit</span>
-                <X className="w-4 h-4" />
-              </button>
+              {/* Sticky Top Header with Swipe Bar and Exit Options */}
+              <div className="sticky top-0 left-0 right-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#D4AF37]/30 px-4 py-3 flex items-center justify-between shadow-lg">
+                <button
+                  onClick={() => setSelectedPost(null)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-sans uppercase font-bold tracking-wider cursor-pointer transition-all active:scale-95"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Back</span>
+                </button>
+
+                {/* Mobile Drag / Swipe Pill */}
+                <div className="flex flex-col items-center cursor-grab active:cursor-grabbing">
+                  <div className="w-12 h-1.5 bg-[#D4AF37]/60 hover:bg-[#D4AF37] rounded-full mb-0.5" />
+                  <span className="text-[9px] uppercase tracking-widest text-[#F5F5F0]/50 font-sans hidden xs:inline">
+                    Swipe down to close
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => setSelectedPost(null)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D4AF37] hover:brightness-110 text-black text-xs font-sans uppercase font-bold tracking-wider cursor-pointer transition-all shadow-md active:scale-95"
+                  title="Close (Esc or swipe down)"
+                >
+                  <span>Exit</span>
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
 
               {/* Modal Cover Image */}
-              <div className="relative h-72 md:h-96 w-full overflow-hidden">
+              <div className="relative h-60 sm:h-72 md:h-96 w-full overflow-hidden flex-shrink-0">
                 <img
                   src={selectedPost.image}
                   alt={selectedPost.title}
@@ -414,18 +440,18 @@ export default function Blog() {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/40" />
-                <div className="absolute bottom-6 left-6 right-6 space-y-2">
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 space-y-2">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/75 border border-[#D4AF37]/50 rounded-full text-[10px] font-sans uppercase tracking-widest text-[#D4AF37] font-bold">
                     {selectedPost.category}
                   </span>
-                  <h2 className="font-serif text-2xl md:text-4xl font-bold text-white leading-tight drop-shadow-md">
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-4xl font-bold text-white leading-tight drop-shadow-md">
                     {selectedPost.title}
                   </h2>
                 </div>
               </div>
 
               {/* Modal Details & Content */}
-              <div className="p-6 md:p-10 space-y-8">
+              <div className="p-5 sm:p-6 md:p-10 space-y-8 flex-1">
                 <div className="flex flex-wrap items-center justify-between gap-4 py-3 border-y border-[#D4AF37]/20 text-xs font-sans text-[#F5F5F0]/60">
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1.5">
@@ -449,7 +475,7 @@ export default function Blog() {
                 </div>
 
                 {/* Social Share & Instagram / Facebook Action Card */}
-                <div className="p-6 bg-gradient-to-r from-purple-950/40 via-black to-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="p-5 sm:p-6 bg-gradient-to-r from-purple-950/40 via-black to-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
                     <h4 className="font-serif text-base font-bold text-white flex items-center gap-2">
                       <Instagram className="w-5 h-5 text-pink-400" />
@@ -459,12 +485,12 @@ export default function Blog() {
                       See daily grand decor setups &amp; live video highlights on Instagram and Facebook.
                     </p>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
                     <a
                       href="https://www.instagram.com/_surya_event_management._?igsh=aDV5M2c2Mzd4eXNs"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 bg-gradient-to-r from-pink-600 to-amber-500 text-white rounded-md text-xs font-sans uppercase tracking-widest font-bold hover:brightness-110 transition-all flex items-center gap-1.5 whitespace-nowrap shadow-lg"
+                      className="flex-1 sm:flex-none justify-center px-4 py-2 bg-gradient-to-r from-pink-600 to-amber-500 text-white rounded-md text-xs font-sans uppercase tracking-widest font-bold hover:brightness-110 transition-all flex items-center gap-1.5 whitespace-nowrap shadow-lg"
                     >
                       Instagram
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -473,7 +499,7 @@ export default function Blog() {
                       href="https://www.facebook.com/share/198yMm2gpF/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md text-xs font-sans uppercase tracking-widest font-bold transition-all flex items-center gap-1.5 whitespace-nowrap shadow-lg"
+                      className="flex-1 sm:flex-none justify-center px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md text-xs font-sans uppercase tracking-widest font-bold transition-all flex items-center gap-1.5 whitespace-nowrap shadow-lg"
                     >
                       Facebook
                       <ExternalLink className="w-3.5 h-3.5" />

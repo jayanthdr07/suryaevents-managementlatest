@@ -393,6 +393,14 @@ export default function Gallery() {
       <AnimatePresence>
         {currentPhoto && selectedPhotoIndex !== null && (
           <motion.div
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={{ top: 0, bottom: 0.6 }}
+            onDragEnd={(_e, info) => {
+              if (info.offset.y > 80 || info.velocity.y > 400) {
+                handleClose();
+              }
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -402,7 +410,7 @@ export default function Gallery() {
           >
             {/* 1. Top Control Bar */}
             <div 
-              className="px-4 sm:px-8 py-4 bg-black/80 border-b border-[#D4AF37]/20 flex items-center justify-between z-30"
+              className="px-4 sm:px-8 py-3.5 bg-black/80 border-b border-[#D4AF37]/20 flex items-center justify-between z-30"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Left: Counter & Category */}
@@ -416,9 +424,10 @@ export default function Gallery() {
                 </div>
               </div>
 
-              {/* Center: Title on desktop */}
-              <div className="hidden md:block text-center max-w-md truncate">
-                <span className="font-serif text-sm font-bold text-white">
+              {/* Center: Title on desktop & mobile swipe pill */}
+              <div className="flex flex-col items-center cursor-grab active:cursor-grabbing">
+                <div className="w-12 h-1 bg-[#D4AF37]/60 hover:bg-[#D4AF37] rounded-full mb-0.5 sm:hidden" />
+                <span className="font-serif text-sm font-bold text-white hidden md:block max-w-md truncate">
                   {currentPhoto.title}
                 </span>
               </div>
@@ -456,10 +465,11 @@ export default function Gallery() {
                 {/* Close Button */}
                 <button
                   onClick={handleClose}
-                  className="p-2 sm:p-2.5 rounded-full bg-[#D4AF37] text-black hover:brightness-110 transition-all cursor-pointer font-bold shadow-lg"
-                  title="Close Lightbox (Esc)"
+                  className="px-3.5 py-1.5 rounded-full bg-[#D4AF37] text-black hover:brightness-110 transition-all cursor-pointer font-bold shadow-lg flex items-center gap-1.5 text-xs uppercase tracking-wider"
+                  title="Close Lightbox (Esc or swipe down)"
                 >
-                  <X className="w-5 h-5" />
+                  <span>Exit</span>
+                  <X className="w-4 h-4" />
                 </button>
               </div>
             </div>

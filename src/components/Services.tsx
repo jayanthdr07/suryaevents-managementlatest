@@ -149,29 +149,55 @@ export default function Services() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 md:p-8 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-8 overflow-y-auto"
             onClick={() => setSelectedService(null)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              drag="y"
+              dragConstraints={{ top: 0, bottom: 0 }}
+              dragElastic={{ top: 0, bottom: 0.6 }}
+              onDragEnd={(_e, info) => {
+                if (info.offset.y > 75 || info.velocity.y > 400) {
+                  setSelectedService(null);
+                }
+              }}
+              initial={{ scale: 0.95, opacity: 0, y: 40 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="bg-[#0e0e0e] border border-[#D4AF37]/40 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
+              exit={{ scale: 0.95, opacity: 0, y: 40 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="bg-[#0e0e0e] border border-[#D4AF37]/40 rounded-t-3xl sm:rounded-2xl max-w-2xl w-full max-h-[92vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Top Close / Exit Button */}
-              <button
-                onClick={() => setSelectedService(null)}
-                className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/85 border border-[#D4AF37]/60 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-30 flex items-center gap-1.5 shadow-2xl backdrop-blur-md text-xs font-sans uppercase font-bold tracking-wider"
-                title="Close and exit details (Esc)"
-              >
-                <span>Exit</span>
-                <X className="w-4 h-4" />
-              </button>
+              {/* Sticky Top Header with Swipe Bar and Exit Options */}
+              <div className="sticky top-0 left-0 right-0 z-40 bg-[#0e0e0e]/95 backdrop-blur-md border-b border-[#D4AF37]/30 px-4 py-3 flex items-center justify-between shadow-lg">
+                <button
+                  onClick={() => setSelectedService(null)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-sans uppercase font-bold tracking-wider cursor-pointer transition-all active:scale-95"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Back</span>
+                </button>
+
+                {/* Mobile Drag / Swipe Pill */}
+                <div className="flex flex-col items-center cursor-grab active:cursor-grabbing">
+                  <div className="w-12 h-1.5 bg-[#D4AF37]/60 hover:bg-[#D4AF37] rounded-full mb-0.5" />
+                  <span className="text-[9px] uppercase tracking-widest text-[#F5F5F0]/50 font-sans hidden xs:inline">
+                    Swipe down to close
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => setSelectedService(null)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D4AF37] hover:brightness-110 text-black text-xs font-sans uppercase font-bold tracking-wider cursor-pointer transition-all shadow-md active:scale-95"
+                  title="Close (Esc or swipe down)"
+                >
+                  <span>Exit</span>
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
 
               {/* Modal Cover Image */}
-              <div className="relative h-64 md:h-80 w-full overflow-hidden">
+              <div className="relative h-56 sm:h-72 md:h-80 w-full overflow-hidden flex-shrink-0">
                 <img
                   src={selectedService.image}
                   alt={selectedService.title}
@@ -179,18 +205,18 @@ export default function Services() {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e0e] via-transparent to-black/40" />
-                <div className="absolute bottom-6 left-6 right-6 space-y-1">
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 space-y-1">
                   <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
                     Specialized Service Detail
                   </span>
-                  <h2 className="font-serif text-2xl md:text-3xl font-bold text-white leading-tight">
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
                     {selectedService.title}
                   </h2>
                 </div>
               </div>
 
               {/* Modal Body */}
-              <div className="p-6 md:p-8 space-y-6">
+              <div className="p-5 sm:p-6 md:p-8 space-y-6 flex-1">
                 <p className="font-sans text-sm md:text-base text-[#F5F5F0]/80 leading-relaxed font-light">
                   {selectedService.description}
                 </p>

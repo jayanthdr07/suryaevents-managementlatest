@@ -148,29 +148,55 @@ export default function FeaturedEvents() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 md:p-8 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-8 overflow-y-auto"
             onClick={() => setSelectedEvent(null)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              drag="y"
+              dragConstraints={{ top: 0, bottom: 0 }}
+              dragElastic={{ top: 0, bottom: 0.6 }}
+              onDragEnd={(_e, info) => {
+                if (info.offset.y > 75 || info.velocity.y > 400) {
+                  setSelectedEvent(null);
+                }
+              }}
+              initial={{ scale: 0.95, opacity: 0, y: 40 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="bg-[#0a0a0a] border border-[#D4AF37]/40 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
+              exit={{ scale: 0.95, opacity: 0, y: 40 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="bg-[#0a0a0a] border border-[#D4AF37]/40 rounded-t-3xl sm:rounded-2xl max-w-4xl w-full max-h-[92vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Top Close / Exit Button */}
-              <button
-                onClick={() => setSelectedEvent(null)}
-                className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/85 border border-[#D4AF37]/60 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all cursor-pointer z-30 flex items-center gap-1.5 shadow-2xl backdrop-blur-md text-xs font-sans uppercase font-bold tracking-wider"
-                title="Close and exit event details (Esc)"
-              >
-                <span>Exit</span>
-                <X className="w-4 h-4" />
-              </button>
+              {/* Sticky Top Header with Swipe Bar and Exit Options */}
+              <div className="sticky top-0 left-0 right-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#D4AF37]/30 px-4 py-3 flex items-center justify-between shadow-lg">
+                <button
+                  onClick={() => setSelectedEvent(null)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-sans uppercase font-bold tracking-wider cursor-pointer transition-all active:scale-95"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Back</span>
+                </button>
+
+                {/* Mobile Drag / Swipe Pill */}
+                <div className="flex flex-col items-center cursor-grab active:cursor-grabbing">
+                  <div className="w-12 h-1.5 bg-[#D4AF37]/60 hover:bg-[#D4AF37] rounded-full mb-0.5" />
+                  <span className="text-[9px] uppercase tracking-widest text-[#F5F5F0]/50 font-sans hidden xs:inline">
+                    Swipe down to close
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => setSelectedEvent(null)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D4AF37] hover:brightness-110 text-black text-xs font-sans uppercase font-bold tracking-wider cursor-pointer transition-all shadow-md active:scale-95"
+                  title="Close (Esc or swipe down)"
+                >
+                  <span>Exit</span>
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
 
               {/* Main Image Stage */}
-              <div className="relative h-80 md:h-[420px] w-full overflow-hidden bg-black">
+              <div className="relative h-60 sm:h-80 md:h-[400px] w-full overflow-hidden bg-black flex-shrink-0">
                 <img
                   src={selectedEvent.images[activeImageIdx] || selectedEvent.bannerImage}
                   alt={selectedEvent.title}
@@ -179,8 +205,8 @@ export default function FeaturedEvents() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/40" />
                 
-                <div className="absolute bottom-6 left-6 right-6 space-y-2">
-                  <div className="flex items-center gap-3">
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 space-y-2">
+                  <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                     <span className="px-3 py-1 bg-black/80 border border-[#D4AF37]/40 rounded-full text-[10px] font-sans uppercase tracking-widest text-[#D4AF37] font-bold">
                       {selectedEvent.type}
                     </span>
@@ -189,7 +215,7 @@ export default function FeaturedEvents() {
                       {selectedEvent.venueStyle}
                     </span>
                   </div>
-                  <h2 className="font-serif text-2xl md:text-4xl font-bold text-white leading-tight">
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-4xl font-bold text-white leading-tight">
                     {selectedEvent.title}
                   </h2>
                 </div>
@@ -197,7 +223,7 @@ export default function FeaturedEvents() {
 
               {/* Thumbnail Gallery Strip */}
               {selectedEvent.images.length > 1 && (
-                <div className="px-6 py-4 bg-black/60 border-b border-[#D4AF37]/20 flex gap-3 overflow-x-auto">
+                <div className="px-4 sm:px-6 py-3 bg-black/60 border-b border-[#D4AF37]/20 flex gap-2.5 sm:gap-3 overflow-x-auto">
                   {selectedEvent.images.map((img, idx) => (
                     <button
                       key={idx}
@@ -213,9 +239,9 @@ export default function FeaturedEvents() {
               )}
 
               {/* Body Details */}
-              <div className="p-6 md:p-10 space-y-8">
+              <div className="p-5 sm:p-6 md:p-10 space-y-8 flex-1">
                 <div>
-                  <h3 className="font-serif text-xl font-bold text-[#D4AF37] mb-3">Event Story &amp; Vision</h3>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#D4AF37] mb-3">Event Story &amp; Vision</h3>
                   <p className="font-sans text-sm md:text-base text-[#F5F5F0]/80 leading-relaxed font-light">
                     {selectedEvent.story}
                   </p>
@@ -223,7 +249,7 @@ export default function FeaturedEvents() {
 
                 {/* Highlights */}
                 <div className="space-y-3">
-                  <h3 className="font-serif text-xl font-bold text-[#D4AF37]">Execution Highlights</h3>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#D4AF37]">Execution Highlights</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                     {selectedEvent.highlights.map((hl, idx) => (
                       <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-[#D4AF37]/15">
