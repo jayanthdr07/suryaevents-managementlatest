@@ -72,3 +72,28 @@
     transform: scale(1.05);
   }
 }
+
+/* Rolling Marquee Animation */
+@keyframes marqueeRoll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-roll {
+  animation: marqueeRoll 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-roll:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-roll {
+    animation: none;
+  }
+}

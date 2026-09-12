@@ -40,5 +40,5 @@ export interface Testimonial {
   eventType: string;
   review: string;
   location: string;
-  image: string;
+  image?: string;
 }
