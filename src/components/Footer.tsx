@@ -136,9 +136,14 @@ export default function Footer() {
 
         {/* Bottom Section: Copyright & Schema Markup Tags */}
         <div className="pt-10 border-t border-[#D4AF37]/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-          <p className="text-xs md:text-sm text-[#F5F5F0]/50 font-sans font-light">
-            &copy; {currentYear} Surya Event Management. All Rights Reserved. Crafted with Royal Pride in Bengaluru.
-          </p>
+          <div className="space-y-1.5">
+            <p className="text-xs md:text-sm text-[#F5F5F0]/50 font-sans font-light">
+              &copy; {currentYear} Surya Event Management. All Rights Reserved. Crafted with Royal Pride in Bengaluru.
+            </p>
+            <p className="text-xs md:text-sm text-[#F5F5F0]/60 font-sans font-light">
+              Designed by : <span className="text-[#D4AF37] font-medium tracking-wider">Digitara</span>
+            </p>
+          </div>
           
           {/* Quick social display & reference links */}
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-6">
