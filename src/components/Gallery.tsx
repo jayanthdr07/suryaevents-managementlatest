@@ -33,6 +33,17 @@ export interface GalleryPhoto {
 
 const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
+    id: "g0",
+    url: "/images/shubham_convention_reception_stage.jpg",
+    title: "Night Reception Stage with Illuminated Canopy",
+    category: "reception",
+    categoryLabel: "Reception Stage",
+    venue: "Shubham Convention, Hubli",
+    year: "2024",
+    description: "Night Reception Stage with circular floral dome canopy, hanging wisteria flower cascades, crystal chandeliers, glowing crescent light wings, and reflective mirror runway.",
+    featured: true
+  },
+  {
     id: "g1",
     url: "https://cdn0.weddingwire.in/vendor/3890/3_2/960/jpg/wedding-planners-surya-events-stage-decor-7_15_373890-162973430996842.jpeg",
     title: "Grand Royal Stage Architecture",

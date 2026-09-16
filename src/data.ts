@@ -26,7 +26,7 @@ export const SERVICES: Service[] = [
       "Bridal & Groom Grand Stage Seating Concepts",
       "Complete On-Site Management & Guest Care"
     ],
-    image: "https://www.marriagecolours.com/wp-content/uploads/2024/10/prithiviraj-sanjeeani-wedding-pudukkottai-couple-entry.jpg",
+    image: "/images/shubham_convention_reception_stage.jpg",
     anchorId: "reception"
   },
   {
@@ -71,6 +71,29 @@ export const SERVICES: Service[] = [
 ];
 
 export const FEATURED_EVENTS: FeaturedEvent[] = [
+  {
+    id: "shubham-hubli-reception",
+    title: "Night Reception Stage with Illuminated Canopy",
+    type: "Grand Reception Stage",
+    venueStyle: "Shubham Convention, Hubli",
+    shortStory: "A majestic night reception stage with circular floral canopy, crystal chandeliers, glowing crescent wings, and reflective mirror runway.",
+    story: "Executed at Shubham Convention in Hubli, this grand night reception stage was designed as an awe-inspiring visual spectacle. The centerpiece features a massive circular floral dome canopy dripping with hanging white wisteria, baby's breath, and imported roses, accompanied by cascading crystal chandeliers. The starry LED backdrop with glowing monogram, illuminated crescent wings, tiered candlelight steps, and a mirror-polished reflective runway created an unforgettable fairy-tale atmosphere for over 1,500 guests.",
+    bannerImage: "/images/shubham_convention_reception_stage.jpg",
+    images: [
+      "/images/shubham_convention_reception_stage.jpg",
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=600"
+    ],
+    guestCapacity: "1,500 Guests",
+    highlights: [
+      "Circular overhead floral dome canopy with cascading white wisteria",
+      "High-gloss reflective mirror runway floor with warm perimeter ambient glow",
+      "Glowing crescent moon sculptural light wings & starry LED backdrop",
+      "Tiered stage runner floral beds with glass cylinder hurricane candles",
+      "Precision sound, intelligent beam lighting, and complete VIP hospitality"
+    ]
+  },
   {
     id: "royal-palace",
     title: "Grand South Indian Muhurtha & Reception",

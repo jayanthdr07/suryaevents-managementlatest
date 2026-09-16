@@ -102,6 +102,33 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
 
   // --- Category: Reception Stage Structures ---
   {
+    id: "hubli-shubham-reception-stage",
+    categoryId: "reception-structures",
+    title: "Night Reception Stage with Illuminated Canopy",
+    tagline: "Shubham Convention, Hubli",
+    heroImage: "/images/shubham_convention_reception_stage.jpg",
+    description: "A breathtaking night reception stage architecture created at Shubham Convention, Hubli. Features a majestic circular floral dome canopy with white wisteria and crystal chandeliers, glowing crescent moon wings, starlight backdrop with personalized monogram, glass hurricane candlelight along two-tier steps, and a mirror-finish reflective walkway.",
+    venueDetails: "Shubham Convention, Hubli, Karnataka. Premium convention hall with grand stage depth, banquet seating, and VIP hospitality.",
+    designHighlights: [
+      "Grand circular floral dome canopy with hanging wisteria flower cascades",
+      "Tiered crystal chandeliers and warm LED rod light installations",
+      "Custom starfield backdrop with glowing AR monogram and neon crescent wings",
+      "High-gloss reflective mirror runway reflecting stage illuminations",
+      "Two-tiered stage runner floral beds with glass hurricane candles"
+    ],
+    planningNotes: "Full stage engineering, structural load calculation for hanging canopy, synchronized ambient lighting, and complete audio-visual orchestration.",
+    testimonial: {
+      client: "Anand & Ritu Family",
+      text: "The night reception stage at Shubham Convention in Hubli was like a dream come true. The mirror floor and glowing chandeliers left every guest spellbound."
+    },
+    images: [
+      "/images/shubham_convention_reception_stage.jpg",
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000&sig=r1",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=1000&sig=r2",
+      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&q=80&w=1000&sig=r3"
+    ]
+  },
+  {
     id: "bengaluru-reception-stage",
     categoryId: "reception-structures",
     title: "Illuminated Grand Reception Stage",
