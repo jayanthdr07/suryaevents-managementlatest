@@ -78,7 +78,7 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
     categoryId: "luxury-weddings",
     title: "Heritage Mysuru Wedding",
     tagline: "Heritage Resort, Mysuru",
-    heroImage: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200",
+    heroImage: "/images/mysore_heritage_destination_wedding.jpg",
     description: "An open-air heritage wedding surrounded by natural flora and classical South Indian architecture. Features customized silk drapery, lotus petal urlis, and a peaceful green courtyard setting.",
     venueDetails: "Heritage Resort Venue, Mysuru, Karnataka.",
     designHighlights: [
@@ -93,10 +93,10 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
       text: "An end-to-end wedding package that gave our family total peace of mind. Every ritual was executed seamlessly with great respect for our traditions."
     },
     images: [
+      "/images/mysore_heritage_destination_wedding.jpg",
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000&sig=m1",
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=1000&sig=m2",
-      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&q=80&w=1000&sig=m3",
-      "https://images.unsplash.com/photo-1505232458627-5ae907589990?auto=format&fit=crop&q=80&w=1000&sig=m4"
+      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&q=80&w=1000&sig=m3"
     ]
   },
 
@@ -161,14 +161,14 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
     categoryId: "family-ceremonies",
     title: "Seemantha & Namakarana Celebration",
     tagline: "Traditional Family Milestones, Bengaluru",
-    heroImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIWsfmZXhgYnXUsAlJnyZnOb_N9Rkyag1BkzIKIWy9TuwBn9P5nBX47k&s=10",
-    description: "A heartwarming Seemantha (Baby Shower) and Namakarana (Naming Ceremony) styled with soft pastel pink roses, traditional brass cradles, and flower-decorated swings.",
+    heroImage: "/images/traditional_seemantham_stage.jpg",
+    description: "A heartwarming traditional Seemantha (Baby Shower) and Namakarana celebration styled with lush banana leaves, cascading white jasmine and lotus buds, heritage carved throne, and gleaming brass oil lamps.",
     venueDetails: "Boutique Garden Venue, Bengaluru.",
     designHighlights: [
-      "Custom lotus flower backdrop and decorated jhula (swing)",
-      "Traditional brass cradle decoration for Namakarana",
-      "Pastel flower entrance arches",
-      "Handcrafted return gift favor counters"
+      "Verdant banana leaf backdrop with cascading jasmine (mallige) garlands and lotus buds",
+      "Traditional brass oil lamps (kuthu vilakku) and wooden carved pedestals",
+      "Gleaming brass urlis overflowing with auspicious fruits and floral bouquets",
+      "Handcrafted return gift favor counters and elder seating zones"
     ],
     planningNotes: "Customized seating for elders, gentle lighting, and dedicated family host coordinators.",
     testimonial: {
@@ -176,7 +176,7 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
       text: "We handed over the complete responsibility of our daughter's Seemantha and Namakarana ceremonies to Surya Event Management. The floral decor was so elegant!"
     },
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIWsfmZXhgYnXUsAlJnyZnOb_N9Rkyag1BkzIKIWy9TuwBn9P5nBX47k&s=10",
+      "/images/traditional_seemantham_stage.jpg",
       "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=1000&sig=s2",
       "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&q=80&w=1000&sig=s3",
       "https://images.unsplash.com/photo-1549417229-aa67d3263c09?auto=format&fit=crop&q=80&w=1000&sig=s4"

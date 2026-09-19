@@ -52,7 +52,7 @@ export const SERVICES: Service[] = [
       "Family Milestone Celebrations & Golden Anniversaries",
       "Return Gift Packaging & Customized Guest Favor Counters"
     ],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIWsfmZXhgYnXUsAlJnyZnOb_N9Rkyag1BkzIKIWy9TuwBn9P5nBX47k&s=10",
+    image: "/images/traditional_seemantham_stage.jpg",
     anchorId: "family-ceremonies"
   },
   {
@@ -65,7 +65,7 @@ export const SERVICES: Service[] = [
       "Guest Accommodation, Airport & Railway Station Transfers",
       "Complete Event Day Logistics & Zero-Stress Execution"
     ],
-    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/ballroom_banquet_hall.jpg",
     anchorId: "end-to-end"
   }
 ];
@@ -124,12 +124,12 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
     venueStyle: "Heritage Resort, Mysuru",
     shortStory: "A serene heritage wedding surrounded by traditional architecture, royal floral walkways, and classical Nadaswaram music.",
     story: "Set in a picturesque heritage venue in Mysuru, this wedding celebrated rich South Indian traditions with timeless elegance. Our team crafted an open-air Muhurtha overlooking lush green lawns. Guests enjoyed a traditional welcome with rose water, chandan, and live classical Nadaswaram tunes, followed by an evening reception beneath a starlight floral canopy.",
-    bannerImage: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200",
+    bannerImage: "/images/mysore_heritage_destination_wedding.jpg",
     images: [
+      "/images/mysore_heritage_destination_wedding.jpg",
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600",
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1505232458627-5ae907589990?auto=format&fit=crop&q=80&w=600"
+      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&q=80&w=600"
     ],
     guestCapacity: "650 Guests",
     highlights: [
@@ -146,9 +146,9 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
     venueStyle: "Taj West End, Bengaluru",
     shortStory: "An elegant, traditional Seemantha (Baby Shower) decorated with soft pastel flowers and traditional swing setups.",
     story: "Hosted at the lush lawns of Taj West End, Bengaluru, this Seemantha celebration was styled with soft pink and gold floral backdrops, a flower-adorned traditional swing, and handcrafted return gift favor counters. Surya Event Management took care of every detail, allowing the family to enjoy every moment with their loved ones.",
-    bannerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIWsfmZXhgYnXUsAlJnyZnOb_N9Rkyag1BkzIKIWy9TuwBn9P5nBX47k&s=10",
+    bannerImage: "/images/traditional_seemantham_stage.jpg",
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROIWsfmZXhgYnXUsAlJnyZnOb_N9Rkyag1BkzIKIWy9TuwBn9P5nBX47k&s=10",
+      "/images/traditional_seemantham_stage.jpg",
       "https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&q=80&w=600",
       "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=600",
       "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=600"

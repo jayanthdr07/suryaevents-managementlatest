@@ -66,6 +66,50 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
     featured: true
   },
   {
+    id: "g-mysore-heritage",
+    url: "/images/mysore_heritage_destination_wedding.jpg",
+    title: "Heritage Mysuru Destination Wedding",
+    category: "muhurtha",
+    categoryLabel: "Muhurtha Mandapam",
+    venue: "Heritage Resort, Mysuru",
+    year: "2024",
+    description: "Open-air traditional Muhurtha mandapam draped with fresh jasmine garlands, glowing brass deepams, and illuminated heritage architecture.",
+    featured: true
+  },
+  {
+    id: "g-traditional-seemantham",
+    url: "/images/traditional_seemantham_stage.jpg",
+    title: "Traditional Seemantham & Cradle Milestone",
+    category: "traditional",
+    categoryLabel: "Traditional Ceremonies",
+    venue: "Boutique Garden Venue, Bengaluru",
+    year: "2024",
+    description: "Lush banana leaf backdrop with hanging jasmine and lotus buds, heritage carved throne, and gleaming brass urlis with auspicious fruits.",
+    featured: true
+  },
+  {
+    id: "g-ballroom-banquet",
+    url: "/images/ballroom_banquet_hall.jpg",
+    title: "Grand Ballroom Banquet & Reception Stage",
+    category: "reception",
+    categoryLabel: "Reception Stage",
+    venue: "Grand Convention Hotel Ballroom",
+    year: "2024",
+    description: "Multi-tiered tray ceiling with crystal chandeliers, polished marble reflective flooring, and elevated VIP sofa stage.",
+    featured: true
+  },
+  {
+    id: "g-twilight-lawn",
+    url: "/images/twilight_resort_lawn_celebration.jpg",
+    title: "Twilight Resort Celebration Lawn & Pavilion",
+    category: "reception",
+    categoryLabel: "Reception Stage",
+    venue: "Celebrations Resort, Bengaluru",
+    year: "2024",
+    description: "Magical evening open-air wedding lawn with fairy-lit palm trees, candlelit dining centerpieces, and illuminated banquet pavilion.",
+    featured: true
+  },
+  {
     id: "g3",
     url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1600",
     title: "Heritage South Indian Muhurtha Mandapam",

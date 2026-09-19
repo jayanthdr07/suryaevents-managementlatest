@@ -2,12 +2,63 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, ArrowRight, MessageSquare } from "lucide-react";
 
-const HERO_BACKGROUND_IMAGES = [
-  "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1920",
-  "https://cdn0.weddingwire.in/vendor/3890/3_2/960/jpg/wedding-planners-surya-events-stage-decor-3_15_373890-162973430113036.jpeg",
-  "https://cdn0.weddingwire.in/vendor/3890/3_2/960/jpg/wedding-planners-surya-events-stage-decor-7_15_373890-162973430996842.jpeg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6COl9PHfclJ891zYOu4v_sJMy2Hsc-TdjNIFhogJ3zBoNG1pTEbZ3zkx_&s=10",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp3JUUo27gsiv7sCK9t7hjHkAquUB8wPrJBfzUNTfRyz2aCvq6dDpI-oBj&s=10",
+interface HeroSlide {
+  url: string;
+  venue: string;
+  tagline: string;
+}
+
+const HERO_BACKGROUND_IMAGES: HeroSlide[] = [
+  {
+    url: "/images/shubham_convention_reception_stage.jpg",
+    venue: "Shubham Convention, Hubli",
+    tagline: "Night Reception Stage with Illuminated Floral Canopy"
+  },
+  {
+    url: "/images/mysore_heritage_destination_wedding.jpg",
+    venue: "Heritage Resort, Mysuru",
+    tagline: "Royal Heritage Destination Wedding & Mandapam"
+  },
+  {
+    url: "/images/ballroom_banquet_hall.jpg",
+    venue: "Grand Ballroom Banquet",
+    tagline: "Luxury Reception Hall with Golden Crystal Chandeliers"
+  },
+  {
+    url: "/images/traditional_seemantham_stage.jpg",
+    venue: "Boutique Garden Venue, Bengaluru",
+    tagline: "Traditional Seemantham & Auspicious Family Ceremony"
+  },
+  {
+    url: "/images/twilight_resort_lawn_celebration.jpg",
+    venue: "Celebrations Resort Lawn",
+    tagline: "Twilight Open-Air Reception & Fairy-Lit Pavilion"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1920",
+    venue: "Bengaluru Palace Grounds",
+    tagline: "Grand Muhurtha & Royal Wedding Pavilions"
+  },
+  {
+    url: "https://cdn0.weddingwire.in/vendor/3890/3_2/960/jpg/wedding-planners-surya-events-stage-decor-3_15_373890-162973430113036.jpeg",
+    venue: "Taj West End, Bengaluru",
+    tagline: "Handcrafted Floral Lattice & Brass Bell Chandeliers"
+  },
+  {
+    url: "https://cdn0.weddingwire.in/vendor/3890/3_2/960/jpg/wedding-planners-surya-events-stage-decor-7_15_373890-162973430996842.jpeg",
+    venue: "Palace Sheesh Mahal, Bengaluru",
+    tagline: "Multi-Tiered Illuminated Stage Architecture"
+  },
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6COl9PHfclJ891zYOu4v_sJMy2Hsc-TdjNIFhogJ3zBoNG1pTEbZ3zkx_&s=10",
+    venue: "Gayathri Vihar, Bengaluru",
+    tagline: "Regal Banquet & Synchronized Warm Light Walkway"
+  },
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp3JUUo27gsiv7sCK9t7hjHkAquUB8wPrJBfzUNTfRyz2aCvq6dDpI-oBj&s=10",
+    venue: "Heritage Garden Club, Mysuru",
+    tagline: "Rose Petal Decorated Wooden Jhula & Brass Urli"
+  },
 ];
 
 export default function Hero() {
@@ -15,11 +66,11 @@ export default function Hero() {
   const [windowHeight, setWindowHeight] = useState(1000);
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
 
-  // Background Slideshow changing every 2 seconds
+  // Background Slideshow changing every 3.2 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIdx((prev) => (prev + 1) % HERO_BACKGROUND_IMAGES.length);
-    }, 2000);
+    }, 3200);
 
     return () => clearInterval(timer);
   }, []);
@@ -75,7 +126,7 @@ export default function Hero() {
           transform: `scale(${bgScale}) translate3d(0, ${progress * -30}px, 0)`,
         }}
       >
-        {HERO_BACKGROUND_IMAGES.map((imgSrc, idx) => (
+        {HERO_BACKGROUND_IMAGES.map((slide, idx) => (
           <div
             key={idx}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
@@ -83,8 +134,8 @@ export default function Hero() {
             }`}
           >
             <img
-              src={imgSrc}
-              alt={`Surya Event Management Stage Backdrop ${idx + 1}`}
+              src={slide.url}
+              alt={`${slide.venue} - ${slide.tagline}`}
               className="w-full h-full object-cover object-center contrast-[1.05] saturate-[1.15] brightness-[0.96] filter"
               referrerPolicy="no-referrer"
             />
@@ -102,20 +153,34 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-[#050505] to-transparent" />
       </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#D4AF37]/30">
-        {HERO_BACKGROUND_IMAGES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentImageIdx(idx)}
-            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-              currentImageIdx === idx
-                ? "w-6 bg-[#D4AF37]"
-                : "w-1.5 bg-white/40 hover:bg-white/70"
-            }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
+      {/* Slide Indicators & Venue Badge */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-auto">
+        <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#D4AF37]/30 shadow-lg">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+          <span className="text-[11px] text-[#F5F5F0]/90 font-sans tracking-wide">
+            {HERO_BACKGROUND_IMAGES[currentImageIdx].venue}
+          </span>
+          <span className="text-[10px] text-[#D4AF37]/60 px-1 hidden sm:inline">•</span>
+          <span className="text-[10px] text-[#D4AF37]/90 font-serif italic hidden sm:inline">
+            {HERO_BACKGROUND_IMAGES[currentImageIdx].tagline}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#D4AF37]/30">
+          {HERO_BACKGROUND_IMAGES.map((slide, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentImageIdx(idx)}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                currentImageIdx === idx
+                  ? "w-6 bg-[#D4AF37]"
+                  : "w-1.5 bg-white/40 hover:bg-white/70"
+              }`}
+              title={`${slide.venue} - ${slide.tagline}`}
+              aria-label={`Go to slide ${idx + 1}: ${slide.venue}`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* 2. Overarching Palace Portal Frame (The Doorway Mask) */}
