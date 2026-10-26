@@ -35,6 +35,163 @@ interface BlogPost {
 
 const BLOG_POSTS: BlogPost[] = [
   {
+    id: "south-indian-wedding-venue-space-planning",
+    title: "Beyond the Wedding Stage: Making Every Space Count at a South Indian Wedding",
+    excerpt: "Discover how to plan wedding entrances, Muhurtha spaces, reception stages and guest areas for a coordinated South Indian wedding in Bengaluru.",
+    fullContent: (
+      <article className="space-y-4">
+        <p>At a South Indian wedding, the reception stage may attract the most attention, but it is only one part of the overall celebration. The entrance, ceremony area, guest seating, photography spaces and reception arrangements all contribute to how the event looks and feels.</p>
+        <p>When these spaces are planned independently, the celebration can feel disconnected. A coordinated approach helps the traditional ceremony, decorative elements and guest arrangements work together while allowing each part of the wedding to serve its own purpose.</p>
+        <p>For families planning weddings in Bengaluru and across Karnataka, thoughtful venue planning can help make better use of the available space while maintaining the character of a traditional South Indian celebration.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">1. Make the Entrance the Beginning of the Experience</h2>
+        <p>The entrance gives guests their first impression of the wedding. Rather than treating it as a separate decorative feature, families can plan it as the beginning of the celebration's overall visual theme.</p>
+        <p>Traditional South Indian elements such as banana saplings, fresh floral arrangements and silk drapery can help create a welcoming entrance. The design can then carry selected colors, flowers or materials into the main ceremony and reception areas. To explore unique theme palettes and floral doorway concepts, take inspiration from our guide on <a href="#blog-wedding-decor-ideas" className="text-[#D4AF37] no-underline hover:text-white transition-colors">creative wedding décor ideas</a>.</p>
+        <p>Practical considerations are equally important. The entrance should allow guests to move comfortably, avoid unnecessary congestion and provide a clear route towards the event space.</p>
+        <p>The aim is to create a welcoming arrival without making the entrance difficult to navigate.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">2. Give the Muhurtha Area Its Own Identity</h2>
+        <p>The Muhurtha area has a specific purpose: it needs to accommodate the ceremony and the people involved in it. Its arrangement should therefore be guided by the family's traditions, the priest's requirements and the venue's available space.</p>
+        <p>Fresh jasmine and marigolds, traditional floral structures and silk drapery can help establish the desired setting. Banana saplings and other traditional elements may also be included according to the family's preferences.</p>
+        <p>Instead of filling every available area with decoration, it is better to maintain a clear and functional ceremony space. The couple, priest and participating family members should have enough room, while guests should be able to view the proceedings comfortably.</p>
+        <p>Explore Surya Event Management's <a href="#services" className="text-[#D4AF37] no-underline hover:text-white transition-colors">South Indian wedding and Muhurtha services</a> for traditional ceremony arrangements, and discover our in-depth breakdown on <a href="#blog-traditional-south-indian-wedding-coordination" className="text-[#D4AF37] no-underline hover:text-white transition-colors">coordinating South Indian weddings from Muhurtha to reception</a>.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">3. Design the Reception Stage Around the Venue</h2>
+        <p>A reception stage should complement the venue's architecture, dimensions and lighting conditions. A design that works well in a large banquet hall may not have the same effect in a smaller indoor space or an outdoor venue.</p>
+        <p>Custom stage structures, floral canopies and ambient lighting can be combined according to the setting. Glass runways or mirror-finish aisles may also be considered where the venue layout allows them.</p>
+        <p>Before confirming the design, consider the stage dimensions, guest seating, photography angles and movement around the stage. Lighting should support the overall appearance without becoming uncomfortable for guests or interfering with photography.</p>
+        <p>A coordinated design can make the reception area visually impressive while keeping it practical for the event.</p>
+        <p>Families can browse the <a href="#gallery" className="text-[#D4AF37] no-underline hover:text-white transition-colors">Surya Event Management gallery</a> for examples of reception structures, floral arrangements and lighting setups, or explore upcoming aesthetics in our feature on <a href="#blog-2026-wedding-trends-memorable" className="text-[#D4AF37] no-underline hover:text-white transition-colors">2026 wedding reception trends</a>.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">4. Keep Guest Movement in Mind</h2>
+        <p>A wedding venue needs to accommodate more than the ceremony itself. Guests may arrive at different times, move between event areas, meet family members and gather for photographs.</p>
+        <p>When entrances, seating and activity areas are planned without considering these movements, certain spaces can become crowded. A better layout gives guests clear routes and keeps important access points free.</p>
+        <p>During planning, consider:</p>
+        <ul className="list-disc pl-5 space-y-1 text-[#F5F5F0]/80">
+          <li>A clear route from the entrance to the main event area.</li>
+          <li>Comfortable access to guest seating.</li>
+          <li>Enough space around the stage for family photographs.</li>
+          <li>Safe movement around decorative structures and lighting equipment.</li>
+          <li>Suitable arrangements for elderly guests and families with children.</li>
+        </ul>
+        <p>These details are particularly useful when several hundred guests are expected. The objective is not simply to fit everyone into the venue, but to make the celebration easier to experience. If you are currently evaluating convention halls, palace lawns or open-air resorts, check our advice on <a href="#blog-choose-perfect-wedding-venue" className="text-[#D4AF37] no-underline hover:text-white transition-colors">how to choose the perfect wedding venue</a>.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">5. Create a Consistent Look Across Different Ceremonies</h2>
+        <p>South Indian wedding celebrations may include an engagement, Mehendi, Sangeet, the main wedding and a reception. Each event has a different atmosphere and may require a different arrangement.</p>
+        <p>The engagement can feature a dedicated stage and ring tray styling. Mehendi may use colorful seating and floral swings, while Sangeet may require audio-visual arrangements and a dance floor. For design ideas tailored to intimate pre-wedding milestones, explore our guide on <a href="#blog-engagement-ceremony-ideas-journey" className="text-[#D4AF37] no-underline hover:text-white transition-colors">engagement ceremony planning ideas</a>.</p>
+        <p>These individual designs do not need to look identical. Instead, families can select a few consistent elements, such as a color palette or floral style, to create a connection between the events.</p>
+        <p>A shared planning schedule also helps coordinate setup requirements, venue access and event timings.</p>
+        <p>Learn more about the <a href="#services" className="text-[#D4AF37] no-underline hover:text-white transition-colors">pre-wedding ceremony services offered by Surya Event Management</a>.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">6. Connect Event Styling with the Complete Wedding Plan</h2>
+        <p>Visual arrangements are only one part of a wedding. Venue booking, catering, photography, accommodation and guest transfers also need to fit into the overall schedule.</p>
+        <p>For example, the time required to prepare a reception stage should be considered alongside venue access and other vendor activities. Guest accommodation and transport may also need advance coordination when relatives are travelling from different cities.</p>
+        <p>For traditional dining coordination, especially multi-course sit-down meals, explore our insights on <a href="#blog-south-indian-wedding-feast-banana-leaf-dining" className="text-[#D4AF37] no-underline hover:text-white transition-colors">South Indian wedding feast planning and banana leaf dining</a>. Maintaining a structured <a href="#blog-wedding-planning-timeline" className="text-[#D4AF37] no-underline hover:text-white transition-colors">wedding planning timeline</a> keeps each vendor aligned.</p>
+        <p>A combined plan helps families understand which arrangements are required, when each team needs access and how the different responsibilities fit together.</p>
+        <p>Surya Event Management's <a href="#services" className="text-[#D4AF37] no-underline hover:text-white transition-colors">end-to-end wedding packages</a> cover venue coordination, catering, photography and guest hospitality, helping families plan multiple aspects of the celebration together.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">7. Apply the Same Thoughtfulness to Family Functions</h2>
+        <p>The idea of planning spaces according to their purpose also applies to smaller family occasions. Seemantha, Namakarana, Half-Saree ceremonies and milestone celebrations may require different layouts from a large wedding reception.</p>
+        <p>A Seemantha setup may feature a lotus-inspired floral backdrop and cradle styling, while a Namakarana celebration may include traditional brass cradle and swing arrangements, depending on the family's preferences.</p>
+        <p>For these events, the design should suit the occasion and the available space. A thoughtful arrangement can create a suitable setting for family photographs and gathering without making the venue feel overcrowded.</p>
+        <p>Discover the <a href="#services" className="text-[#D4AF37] no-underline hover:text-white transition-colors">Seemantha and traditional function services</a> available for family celebrations.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">Conclusion</h2>
+        <p>A well-planned South Indian wedding is about more than creating one impressive stage. The entrance, Muhurtha area, reception, guest seating and supporting arrangements should work together to create a coordinated experience.</p>
+        <p>By considering the purpose of each space, the movement of guests and the requirements of every ceremony, families can make better use of their venue while maintaining the traditional character of the celebration. Learn more about our hands-on coordination philosophy in <a href="#blog-why-choose-surya-event" className="text-[#D4AF37] no-underline hover:text-white transition-colors">why choose Surya Event Management</a>.</p>
+        <p>Surya Event Management works with families across Bengaluru and Karnataka on traditional weddings, reception structures, pre-wedding ceremonies and end-to-end event arrangements.</p>
+        <p>To discuss your wedding requirements, visit the <a href="#contact" className="text-[#D4AF37] no-underline hover:text-white transition-colors">Surya Event Management contact section</a> and share your event details.</p>
+        <p className="font-bold text-lg text-[#D4AF37] mt-6">Let Surya Event Management optimize every space of your wedding venue for a seamless, beautifully styled celebration.</p>
+      </article>
+    ),
+    category: "Decor & Styling",
+    date: "October 22, 2026",
+    readTime: "5 min read",
+    author: "Surya Team",
+    image: "https://images.pexels.com/photos/32994472/pexels-photo-32994472.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    likes: 162,
+    instagramTag: "@_surya_event_management._",
+    imageAlt: "South Indian wedding venue space planning and entrance styling in Bengaluru"
+  },
+  {
+    id: "traditional-south-indian-wedding-coordination",
+    title: "How to Coordinate a Traditional South Indian Wedding from Muhurtha to Reception",
+    excerpt: "Discover how to coordinate a South Indian wedding in Bengaluru, from traditional Muhurtha arrangements and floral mandapams to grand reception stages and guest hospitality.",
+    fullContent: (
+      <article className="space-y-4">
+        <p>A traditional South Indian wedding brings together several important arrangements, from the Muhurtha ceremony and floral mandapam to the reception stage and guest hospitality. Each part contributes to the overall celebration, and coordinating them properly helps families enjoy the occasion without unnecessary stress.</p>
+        <p>For weddings in Bengaluru and across Karnataka, planning often involves coordinating the ceremony setup, floral arrangements, lighting, venue requirements and event schedule. When these elements are planned together, the wedding can maintain its traditional character while creating a comfortable experience for the couple and their guests.</p>
+        <p>Surya Event Management provides wedding and ceremony services designed around these requirements, helping families coordinate their celebrations according to their preferences.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">1. Planning the Traditional Muhurtha Setup</h2>
+        <p>The Muhurtha ceremony is an important part of many South Indian weddings. Its arrangements should reflect the family's traditions while providing a suitable space for the ceremony and the people participating in it.</p>
+        <p>Traditional elements such as fresh jasmine, marigolds, banana saplings and silk drapery can help create an authentic setting. Their placement should complement the mandapam without making the ceremony area crowded. For creative inspiration on mandap setups, jasmine canopies and authentic brass urlis, check our <a href="#blog-wedding-decor-ideas" className="text-[#D4AF37] no-underline hover:text-white transition-colors">traditional wedding décor ideas</a>.</p>
+        <p>Before finalizing the setup, families should consider the venue layout, available space, floral requirements and priest coordination. The ceremony schedule should be discussed with the priest so that the arrangements are ready at the appropriate time.</p>
+        <p>Surya Event Management's <a href="#services" className="text-[#D4AF37] no-underline hover:text-white transition-colors">South Indian Weddings and Muhurtha services</a> focus on traditional ceremony setups, floral structures and coordination for ritual timings.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">2. Designing a Reception Stage That Complements the Venue</h2>
+        <p>The reception often provides an opportunity to create a more elaborate visual setting. The stage becomes a central point for welcoming guests, family photographs and interactions with the couple.</p>
+        <p>The design should suit the venue rather than simply follow a particular theme. Larger venues may accommodate sculpted stage structures, floral canopies and illuminated backdrops, while other spaces may benefit from a more balanced arrangement.</p>
+        <p>Some of the elements offered by Surya Event Management include:</p>
+        <ul className="list-disc pl-5 space-y-1 text-[#F5F5F0]/80">
+          <li>Custom-designed reception stage structures.</li>
+          <li>Floral canopies and decorative backdrops.</li>
+          <li>Warm lighting and LED ambient effects.</li>
+          <li>Glass runways and mirror-finish aisles where suitable.</li>
+        </ul>
+        <p>The stage design, lighting and entrance should work together so the venue feels coordinated. Families can explore the <a href="#gallery" className="text-[#D4AF37] no-underline hover:text-white transition-colors">event gallery</a> to see examples of reception stages, floral arrangements and lighting styles featured by Surya Event Management. To see how contemporary couples are styling their grand evening celebrations, explore the latest <a href="#blog-2026-wedding-trends-memorable" className="text-[#D4AF37] no-underline hover:text-white transition-colors">2026 wedding reception trends</a>.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">3. Coordinating Pre-Wedding Ceremonies</h2>
+        <p>A South Indian wedding celebration may include several events before the main wedding day. Nischayathartha, Mehendi, Sangeet and Haldi can each have different arrangements and requirements.</p>
+        <p>For an engagement, the stage and ring tray presentation can be planned around the family's preferred style. Explore our specialized guide on <a href="#blog-engagement-ceremony-ideas-journey" className="text-[#D4AF37] no-underline hover:text-white transition-colors">engagement ceremony ideas</a> for creative stage backdrops and ring exchange concepts. Mehendi celebrations may include colorful seating and floral swings, while Sangeet events can require audio-visual arrangements and a suitable dance floor.</p>
+        <p>Planning these events together helps maintain consistency while allowing each ceremony to have its own character.</p>
+        <p>A shared schedule can also help the family coordinate venue access, setup time and the movement of guests between activities. Surya Event Management includes these celebrations within its <a href="#services" className="text-[#D4AF37] no-underline hover:text-white transition-colors">pre-wedding ceremony services</a>.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">4. Managing Venue, Catering and Guest Hospitality Together</h2>
+        <p>Wedding planning involves more than the visible arrangements. Venue coordination, catering, photography and guest hospitality also need attention.</p>
+        <p>When these responsibilities are managed separately without a shared schedule, delays or communication gaps can affect the celebration. A coordinated plan helps the different teams understand their responsibilities and work towards the same timeline.</p>
+        <p>Important areas to consider include:</p>
+        <ul className="list-disc pl-5 space-y-1 text-[#F5F5F0]/80">
+          <li>Confirming the venue and its event requirements.</li>
+          <li>Allocating the budget across the planned services.</li>
+          <li>Coordinating catering and guest arrangements.</li>
+          <li>Planning accommodation for guests travelling from other cities.</li>
+          <li>Organizing airport or railway station transfers where required.</li>
+          <li>Sharing the event schedule with the relevant teams.</li>
+        </ul>
+        <p>When coordinating catering, especially the sacred Muhurtham meal, explore our comprehensive guide to <a href="#blog-south-indian-wedding-feast-banana-leaf-dining" className="text-[#D4AF37] no-underline hover:text-white transition-colors">South Indian wedding feast planning and banana leaf dining</a>. If you are comparing heritage resorts, convention halls, or palace lawns, read our advice on <a href="#blog-choose-perfect-wedding-venue" className="text-[#D4AF37] no-underline hover:text-white transition-colors">how to choose the perfect wedding venue</a>.</p>
+        <p>Surya Event Management's <a href="#services" className="text-[#D4AF37] no-underline hover:text-white transition-colors">end-to-end wedding packages</a> cover venue coordination, catering, photography, hospitality and planning support for celebrations across Bengaluru and South India.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">5. Including Traditional Family Ceremonies in the Celebration Plan</h2>
+        <p>Wedding celebrations are often accompanied by other important family occasions. Seemantha, Namakarana, Half-Saree ceremonies and milestone celebrations may require arrangements that differ from those of a large wedding reception.</p>
+        <p>For Seemantha, floral backdrops featuring lotus-inspired details and cradle styling can help create a setting suited to the occasion. Namakarana arrangements may include traditional brass cradle and swing styling, depending on the family's preferences.</p>
+        <p>These events benefit from the same attention to scheduling, guest comfort and coordination as a wedding. The scale of the arrangement can be adapted to the venue and the type of celebration.</p>
+        <p>Families planning these occasions can learn more about Surya Event Management's <a href="#services" className="text-[#D4AF37] no-underline hover:text-white transition-colors">Seemantha and traditional function services</a>.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">6. Bringing Every Arrangement Together with One Plan</h2>
+        <p>A wedding includes multiple teams and moving parts. The Muhurtha setup, reception stage, floral work, lighting, catering and hospitality must all fit within the venue's schedule and the family's requirements.</p>
+        <p>A practical planning process begins by listing the ceremonies and services required. The family can then discuss the venue, budget, design preferences and timing before the arrangements are finalized. Aligning all milestones with a structured <a href="#blog-wedding-planning-timeline" className="text-[#D4AF37] no-underline hover:text-white transition-colors">wedding planning timeline</a> ensures that priests, decorators, and caterers move in perfect harmony.</p>
+        <p>It is also useful to identify one point of contact for coordination. This makes it easier to communicate updates, confirm setup progress and address unexpected changes. Discover how our dedicated team ensures flawless execution on our <a href="#blog-why-choose-surya-event" className="text-[#D4AF37] no-underline hover:text-white transition-colors">why choose Surya Event Management</a> feature.</p>
+        <p>With a clear plan, families can spend more time participating in the celebration instead of managing individual arrangements throughout the day.</p>
+
+        <h2 className="text-2xl font-serif text-[#D4AF37] mt-8 mb-4">Conclusion</h2>
+        <p>Coordinating a traditional South Indian wedding requires attention to both cultural preferences and practical event arrangements. From a Muhurtha setup with fresh flowers and traditional elements to a carefully designed reception stage, every part should contribute to a well-organized celebration.</p>
+        <p>Pre-wedding ceremonies, family functions, venue arrangements and guest hospitality also deserve consideration when planning the complete event.</p>
+        <p>Surya Event Management offers wedding and ceremony services across Bengaluru and Karnataka, with arrangements that can be tailored to the family's celebration requirements.</p>
+        <p>To discuss your upcoming wedding or family function, visit the <a href="#contact" className="text-[#D4AF37] no-underline hover:text-white transition-colors">Surya Event Management contact section</a> and share your event details.</p>
+        <p className="font-bold text-lg text-[#D4AF37] mt-6">Let Surya Event Management coordinate your South Indian wedding from sacred Muhurtha rituals to grand reception celebrations.</p>
+      </article>
+    ),
+    category: "Behind The Scenes",
+    date: "October 21, 2026",
+    readTime: "5 min read",
+    author: "Surya Team",
+    image: "https://images.pexels.com/photos/12431906/pexels-photo-12431906.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    likes: 154,
+    instagramTag: "@_surya_event_management._",
+    imageAlt: "Traditional South Indian wedding Muhurtha and reception stage coordination in Bengaluru"
+  },
+  {
     id: "south-indian-wedding-feast-banana-leaf-dining",
     title: "South Indian Wedding Feast Planning: The Art of Traditional Banana Leaf Dining",
     excerpt: "Banana leaf dining is an essential tradition of South Indian celebrations. Discover key insights on seating layout, serving sequence, muhurtham coordination, and flawless dining logistics.",
@@ -1489,6 +1646,23 @@ export default function Blog() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [selectedPost]);
+
+  // Handle direct blog link via hash on initial page load or hash change
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith("#blog-")) {
+        const blogId = hash.replace("#blog-", "");
+        const found = BLOG_POSTS.find((p) => p.id === blogId);
+        if (found) {
+          setSelectedPost(found);
+        }
+      }
+    };
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
 
   const filteredPosts = activeCategory === "All"
     ? BLOG_POSTS
